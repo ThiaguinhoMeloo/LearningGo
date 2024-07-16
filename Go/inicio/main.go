@@ -1,10 +1,12 @@
 package main
 
 import (
-	"inicio/exampleimports"
+	// "inicio/exampleimports"
+	"inicio/mongoconnect"
 )
 
 func main() {
 	// exampleimports.Strconv()
-	exampleimports.Time()
+	// exampleimports.Time()
+	mongoconnect.InsertMongoDb()
 }
