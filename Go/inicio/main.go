@@ -1,7 +1,10 @@
 package main
 
-import "inicio/cap2"
+import (
+	"inicio/exampleimports"
+)
 
 func main() {
-	cap2.Example7()
+	exampleimports.Strconv()
+	exampleimports.Time()
 }
