@@ -6,6 +6,8 @@ import (
 )
 
 func Time() {
+	fmt.Println("Exemplos da função Time: ")
+
 	// Data Atual
 	now := time.Now()
 	fmt.Println("Data e Hora Atuais: ", now)
@@ -30,4 +32,19 @@ func Time() {
 
 	diff := time1.Sub(time2)
 	fmt.Printf("A diferença entre os tempos é de %v horas.\n", diff.Hours())
+
+	//UTC e TIMEZONE
+
+	nowUTC := time.Now().UTC()
+	fmt.Println("Hora UTC atual: ", nowUTC)
+
+	loc, err := time.LoadLocation("America/New_York")
+	if err != nil {
+		fmt.Println("Erro ao carregar fusu horário: ", err)
+		return
+	}
+
+	nowNY := nowUTC.In(loc)
+	formattedTimeNY := nowNY.Format("2006-01-02 15:04")
+	fmt.Println("Hora em Nova Yourk", formattedTimeNY)
 }

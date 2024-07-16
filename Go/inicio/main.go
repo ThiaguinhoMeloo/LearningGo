@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	exampleimports.Strconv()
+	// exampleimports.Strconv()
 	exampleimports.Time()
 }
