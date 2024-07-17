@@ -7,24 +7,24 @@ import (
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func InsertMongoDb() {
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Disconnect(context.TODO())
+	// clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	// client, err := mongo.Connect(context.TODO(), clientOptions)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer client.Disconnect(context.TODO())
 
-	err = client.Ping(context.TODO(), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// err = client.Ping(context.TODO(), nil)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	collection := client.Database("PrimeiroBanco").Collection("PrimeiraCollection")
+	collection := MongConnect()
+
+	// collection := client.Database("PrimeiroBanco").Collection("PrimeiraCollection")
 
 	users := []interface{}{
 		bson.D{
@@ -50,5 +50,5 @@ func InsertMongoDb() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Documento inseridos com os Ids: %v\n", insert.InsertedIDs)
+	fmt.Println("Documento inseridos com os Ids: \n", insert.InsertedIDs)
 }
